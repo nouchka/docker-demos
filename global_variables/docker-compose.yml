@@ -1,0 +1,23 @@
+version: '2'
+services:
+##  hw_0:
+##    image: debian:jessie
+##    environment: &environment
+##      ENV_GLOBAL_VARIABLE: var_global_1
+  hw_1:
+    build: .
+    environment: &environment
+      ENV_GLOBAL_VARIABLE: var_global_1
+    environment:
+      <<: *environment
+      ENV_VARIABLE: var_local_1
+  hw_2:
+    build: .
+    environment:
+      - ENV_GLOBAL_VARIABLE=var_global_2
+      - ENV_VARIABLE=var_local_2
+  hw_3:
+    build: .
+    environment:
+      <<: *environment
+      ENV_VARIABLE: var_local_3
