@@ -2,6 +2,6 @@ version: '2'
 services:
   hello:
     image: learn/tutorial
-    entrypoint: sleep 60
+    entrypoint: /init.sh
     volumes:
      - ./init.sh:/init.sh
