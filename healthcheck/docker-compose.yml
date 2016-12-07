@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  init:
+    build: .
+    entrypoint: /init.sh
+    volumes:
+      - ./init.sh:/init.sh
+      - tmp:/tmp
+  start:
+    image: debian:jessie
+    entrypoint: /start.sh
+    volumes:
+      - ./start.sh:/start.sh
+      - tmp:/tmp
+    links:
+      - init:init
+
+volumes:
+  tmp:
+    driver: local

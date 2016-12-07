@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  app1:
+    container_name: "app1"
+    image: debian:jessie
+    command: sleep 1000
+    network_mode: "bridge"
